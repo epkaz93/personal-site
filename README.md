@@ -10,4 +10,4 @@ folder is large.
 `make build`
 
 ## Test Deploying
-`make test-deploy`
+`make deploy-test`
