@@ -1,0 +1,12 @@
+{% extends "base.jinja" %}
+{% block header_image %}
+/media/portal_snore_4k.png
+{% endblock header_image %}
+
+{% block sections %}
+{% for section in sections %}
+    <tr><td>
+    <h1> {{ section['header'] }} </h1>
+    </td></tr>
+{% endfor %}
+{% endblock sections %}

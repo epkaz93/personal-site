@@ -1,0 +1,40 @@
+<html>
+<head>
+    {% block head %}
+    <title>{% block title %}{% endblock %}</title>
+    {% block styles %}
+        <link rel="stylesheet" type="text/css" href="/styles/main.css">
+        <link rel="stylesheet" type="text/css" href="/styles/navigation.css">
+    {% endblock styles %}
+    {% endblock head %}
+</head>
+<body>
+{% block body %}
+{% block navigation %}
+    <div class="topbar">
+        {% for name, route in topbar_items.items() %}
+            {% if route == active_page %}
+                <a class="active" href="{{ route }}"> {{ name }} </a>
+            {% else %}
+                <a href="{{ route }}"> {{ name }} </a>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div class='header-spacer'>!</div>
+    <img class='header-image' src="{% block header_image %}{% endblock header_image %}">
+{% endblock navigation %}
+<div class="content">
+{% block content %}
+<table class="sections">
+{% for section in sections %}
+    <tr><td>
+    {% block section %}
+    {% endblock section %}
+    </td></tr>
+{% endfor %}
+</table>
+{% endblock content %}
+</div>
+{% endblock body %}
+</body>
+</html>
