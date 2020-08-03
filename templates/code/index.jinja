@@ -1,4 +1,13 @@
 {% extends "base.jinja" %}
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" href="/styles/code.css">
+<style>
+.topbar {
+    background-color: rgb(252, 78, 3, 0.6);
+}
+</style>
+{% endblock styles %}
 
 {% block header_image %}
 /media/code_personal_site.png

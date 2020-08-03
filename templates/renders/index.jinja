@@ -1,4 +1,12 @@
 {% extends "base.jinja" %}
+{% block styles %}
+{{ super() }}
+<style>
+.topbar {
+    background-color: rgb(3, 127, 252, 0.6);
+}
+</style>
+{% endblock styles %}
 {% block header_image %}
 /media/portal_snore_4k.png
 {% endblock header_image %}
