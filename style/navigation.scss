@@ -1,0 +1,53 @@
+@import 'main';
+
+$topbar-padding: $base-scaling-factor * 4;
+
+.topbar {
+    @include shadowed;
+    
+    background-color: rgba($base-color-dark, 0.6);
+    color: $base-color-light;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: $topbar-padding;
+    text-align: center;
+    backdrop-filter: blur(3px);
+
+    a {
+        margin: $base-scaling-factor / 2 0;
+        padding: $topbar-padding;
+        font-size: $base-font-size * 0.75;
+        color: $base-color-light;
+        text-align: center;
+        transition: background-color $base-timing;
+    }
+
+    a:hover, a:focus {
+        background-color: darken($base-color-dark, $base-shading-factor);
+    }
+
+    .active {
+        background-color: darken($base-color-dark, $base-shading-factor * 2);
+        color: darken($base-color-light, $base-shading-factor * 4);
+    }
+
+    a:focus {
+        outline-color: $base-color-highlight;
+        outline-style: solid;
+    }
+}
+
+.header-spacer {
+    padding: $topbar-padding + $base-scaling-factor / 2; // Account for margins on a
+    width: 100%;
+    background-color: $base-color-dark;
+}
+
+.header-image {
+    @include shadowed($size: $base-scaling-factor * 4);
+    height: $base-scale * 40;
+    width: 100%;
+    object-fit: cover;
+}

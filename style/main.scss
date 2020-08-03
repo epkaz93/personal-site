@@ -1,0 +1,54 @@
+$base-color-dark: rgb(40,40,40);
+$base-color-light: rgb(245, 245, 245);
+$base-color-highlight: rgb(3, 132, 252);
+
+$base-scale: 1em;
+$base-scaling-factor: $base-scale / 5;
+$base-shading-factor: 10;
+$base-timing: 0.4s;
+$base-font-size: $base-scale * 1.5;
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: $base-color-light;
+    color: $base-color-dark;
+    font-size: $base-font-size;
+}
+
+@mixin shadowed(
+    $color: darken($base-color-dark, $base-shading-factor * 2), 
+    $size: $base-scaling-factor) {
+        box-shadow: 0 0 $size $color;
+}
+
+@mixin rounded {
+    border-radius: $base-scaling-factor * 2;
+}
+
+.content-image {
+    @include shadowed;
+    @include rounded;
+    width: 50%;
+}
+
+.content {
+    margin: $base-scaling-factor * 5;
+    height: 100%;
+
+    table.sections {
+        tr, td {
+            padding: $base-scaling-factor * 5;
+        }
+    }
+}
+
+a {
+    font-weight: bold;
+    text-decoration: none;
+    color: $base-color-highlight;   
+    transition: color $base-timing;
+}
